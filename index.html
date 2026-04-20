@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ADPL 2026 · Elite Fantasy Cricket League</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300..800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">🏏</span> ADPL·2026</div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">🏠 Leaderboard</a>
+      <a href="pp.html" class="nav-link">👤 Player Profiles</a>
+      <a href="pw.html" class="nav-link">🏆 Previous Winners</a>
+      <a href="more.html" class="nav-link">📖 More</a>
+      <a href="rules.html" class="nav-link">📜 Rules</a>
+      <select id="themeSelector" class="theme-selector">
+  <option value="green-silver">🌿 Green-Silver</option>
+  <option value="red-gold">🔥 Red-Gold</option>
+  <option value="blue-black">💙 Blue-Black</option>
+</select>
+    </div>
+  </nav>
+
+  <main class="main-container">
+      
+    <div class="stats-panel">
+      <div class="live-badge-enhanced"><span class="pulse-dot"></span> LIVE · UPDATED POST MATCH</div>
+    </div>
+    
+    <div class="leaderboard-wrapper">
+      <div class="leaderboard-header">
+        <h2 class="section-title">🏆 SEASON STANDINGS</h2>
+        <div class="leaderboard-sub"></div>
+      </div>
+      <div class="table-responsive">
+        <table id="leaderboard">
+          <thead><tr><th>Rank</th><th>Player</th><th>Winner Pts</th><th>MOTM Pts</th><th>Season Pts</th><th>Total</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="league-subtle">🏅 every correct Winner (+2) | MOTM (+5) | max 7 per match</div>
+    </div>
+    
+    <div class="ipl-links">
+      <a href="https://www.iplt20.com/points-table/2026" target="_blank" class="ipl-card"><span class="card-emoji">🏆</span><h2>IPL POINTS TABLE</h2></a>
+      <a href="https://www.iplt20.com/stats/2026" target="_blank" class="ipl-card"><span class="card-emoji">🏏</span><h2>CAPS LEADERBOARD</h2></a>
+    </div>
+    
+   
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content"><span>⚡ Official Partner:</span><a href="https://chat.whatsapp.com/GcFsctnWN2iB9OV8GofVut?mode=gi_t" target="_blank" class="footer-link"><img src="footer.png" alt="Join ADPL Community"></a></div>
+    <div class="footer-copyright">© ADPL 2026</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>// theme toggle embedded in script.js</script>
+</body>
+</html>
