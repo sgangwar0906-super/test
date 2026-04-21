@@ -214,22 +214,27 @@ body::after {
 audio { width: 100%; }
 
 /* ========== TABLES (CRITICAL FOR MOBILE) ========== */
+/* ========== TABLES (FIXED OVERLAPPING) ========== */
 .table-responsive, .table-responsive-mini {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 0 -0.5rem;
   padding: 0 0.5rem;
+  border-radius: 12px;
 }
+
 #leaderboard, .data-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.85rem;
-  min-width: 650px;  /* ensures scroll on small screens */
+  min-width: 800px;          /* increased to give breathing room */
   white-space: nowrap;
+  table-layout: auto;        /* allow columns to size based on content */
 }
+
 #leaderboard th, .data-table th {
   background: rgba(0,0,0,0.6);
-  padding: 0.8rem 0.5rem;
+  padding: 0.8rem 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -237,32 +242,70 @@ audio { width: 100%; }
   color: var(--accent-secondary);
   border-bottom: 2px solid var(--accent-primary);
   text-align: center;
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(4px);
+  white-space: nowrap;
+  position: relative;
 }
+
 #leaderboard td, .data-table td {
-  padding: 0.7rem 0.5rem;
+  padding: 0.7rem 0.6rem;
   text-align: center;
   background: rgba(0,0,0,0.2);
   border-bottom: 1px solid var(--border-soft);
   font-weight: 500;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* if content overflows, show ... */
+  max-width: 200px;          /* prevents overly wide cells */
 }
-#leaderboard tr:hover td, .data-table tr:hover td { background: var(--hover-bg); }
-#leaderboard td:first-child { font-weight: 800; color: var(--accent-secondary); font-size: 0.95rem; }
-#leaderboard td:last-child { font-weight: 800; color: var(--accent-secondary); border-left: 1px solid var(--border-light); }
 
-/* On very small screens, reduce table font even more but keep scroll */
+/* Prevent any cell from overlapping */
+#leaderboard td, #leaderboard th,
+.data-table td, .data-table th {
+  box-sizing: border-box;
+  border-right: 1px solid transparent; /* invisible divider for spacing */
+}
+
+#leaderboard tr:hover td, .data-table tr:hover td { 
+  background: var(--hover-bg); 
+}
+
+#leaderboard td:first-child { 
+  font-weight: 800; 
+  color: var(--accent-secondary); 
+  font-size: 0.95rem; 
+}
+
+#leaderboard td:last-child { 
+  font-weight: 800; 
+  color: var(--accent-secondary); 
+  border-left: 1px solid var(--border-light); 
+}
+
+/* On small screens, ensure table still scrolls */
+@media (max-width: 768px) {
+  #leaderboard, .data-table {
+    min-width: 700px;
+    font-size: 0.8rem;
+  }
+  #leaderboard th, .data-table th {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  #leaderboard td, .data-table td {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
 @media (max-width: 480px) {
   #leaderboard, .data-table {
+    min-width: 600px;
     font-size: 0.75rem;
-    min-width: 550px;
   }
-  #leaderboard th, .data-table th { padding: 0.6rem 0.3rem; font-size: 0.6rem; }
-  #leaderboard td, .data-table td { padding: 0.5rem 0.3rem; }
+  #leaderboard td, .data-table td {
+    max-width: 150px;
+  }
 }
-
 /* ========== PLAYER GRID ========== */
 .players-grid {
   display: grid;
