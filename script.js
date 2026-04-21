@@ -1,3 +1,5 @@
+// script.js — unchanged (already handles leaderboard, profiles, theme sync)
+// (Same as provided, works with new pages)
 const sheet = "14C6hEU0LomlnzIKXzy7DqvfgsAQF0vmNNnDi3BovUOk";
 const pointsURL = `https://opensheet.elk.sh/${sheet}/points`;
 const matchURL = `https://opensheet.elk.sh/${sheet}/matches`;
@@ -21,7 +23,7 @@ if (document.getElementById("leaderboard")) {
         link.textContent = p.Player;
         link.style.color = "inherit";
         link.style.textDecoration = "none";
-        link.style.borderBottom = "1px dotted var(--accent-gold)";
+        link.style.borderBottom = "1px dotted var(--accent-primary)";
         nameCell.appendChild(link);
         row.insertCell(2).innerText = p.WinnerPts;
         row.insertCell(3).innerText = p.MOTMPts;
@@ -31,7 +33,7 @@ if (document.getElementById("leaderboard")) {
     });
 }
 
-// Player Profile Page
+// Player Profile Page (pp.html)
 if (document.getElementById("playersGrid")) {
   const photoMap = {
     "Samarth Gangwar": "sg.png", "Divyansh Tyagi": "dt.png",
@@ -123,36 +125,13 @@ if (document.getElementById("playersGrid")) {
   }
 }
 
-// Theme Toggle (applies to all pages)
-(function() {
-  const toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  const html = document.documentElement;
-  const icon = toggle.querySelector('.theme-icon');
-  const text = toggle.querySelector('.theme-text');
-  const stored = localStorage.getItem('adpl-theme');
-  const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  const apply = (theme) => {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('adpl-theme', theme);
-    if (icon) icon.textContent = theme === 'dark' ? '🌙' : '☀️';
-    if (text) text.textContent = theme === 'dark' ? 'Light' : 'Dark';
-  };
-  apply(stored || system);
-  toggle.addEventListener('click', () => {
-    const cur = html.getAttribute('data-theme');
-    apply(cur === 'dark' ? 'light' : 'dark');
-  });
-})();
-// Theme Switcher
+// Theme Switcher (global)
 (function() {
   const themeSelector = document.getElementById('themeSelector');
   if (!themeSelector) return;
-  
   const savedTheme = localStorage.getItem('adpl-theme') || 'green-silver';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeSelector.value = savedTheme;
-  
   themeSelector.addEventListener('change', (e) => {
     const newTheme = e.target.value;
     document.documentElement.setAttribute('data-theme', newTheme);

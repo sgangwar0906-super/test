@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -7,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300..800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
- 
+    /* inline for quick override if needed */
   </style>
 </head>
 <body>
@@ -17,13 +18,25 @@
       <a href="index.html" class="nav-link active">🏠 Leaderboard</a>
       <a href="pp.html" class="nav-link">👤 Player Profiles</a>
       <a href="pw.html" class="nav-link">🏆 Previous Winners</a>
+      <a href="stats.html" class="nav-link">📊 Stats</a>
+      <a href="journey.html" class="nav-link">📈 Journey</a>
       <a href="more.html" class="nav-link">📖 More</a>
       <a href="rules.html" class="nav-link">📜 Rules</a>
       <select id="themeSelector" class="theme-selector">
-  <option value="green-silver">🌿 Green-Silver</option>
-  <option value="red-gold">🔥 Red-Gold</option>
-  <option value="blue-black">💙 Blue-Black</option>
-</select>
+        <option value="green-silver">🌿 Green-Silver</option>
+        <option value="red-gold">🔥 Red-Gold</option>
+        <option value="blue-black">💙 Blue-Black</option>
+        <option value="csk">🟡💙 CSK (Yellow-Blue)</option>
+        <option value="mi">🔵🟡 MI (Blue-Gold)</option>
+        <option value="rcb">🔴⚫ RCB (Red-Black)</option>
+        <option value="kkr">🟣🟡 KKR (Purple-Gold)</option>
+        <option value="dc">🔵🔴 DC (Blue-Red)</option>
+        <option value="pbks">🔴⚪ PBKS (Red-Silver)</option>
+        <option value="rr">🩷🔵 RR (Pink-Blue)</option>
+        <option value="srh">🟠⚫ SRH (Orange-Black)</option>
+        <option value="lsg">🔵🔴 LSG (Blue-Red)</option>
+        <option value="gt">🔵⚪ GT (Blue-Silver)</option>
+      </select>
     </div>
   </nav>
 
@@ -44,7 +57,7 @@
           <tbody></tbody>
         </table>
       </div>
-      <div class="league-subtle">🏅 every correct Winner (+2) | MOTM (+5) | max 7 per match</div>
+      <div class="league-subtle"></div>
     </div>
     
     <div class="ipl-links">
@@ -61,6 +74,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>// theme toggle embedded in script.js</script>
 </body>
 </html>
